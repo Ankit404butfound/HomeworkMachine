@@ -1,6 +1,5 @@
 import pytesseract
 import tkinter as tk
-import cv2
 import numpy as np
 import urllib.request
 import keyboard as key
@@ -86,14 +85,12 @@ def extract():
         imgpath = str(e1.get())
         filepath = str(e2.get())
 
-        
         if check:
             case = "w"
             
         else:
             case = "a"
-
-        
+       
         content = pytesseract.image_to_string(Image.open(r'%s'%imgpath))
 
         file = open(filepath,case)
@@ -109,7 +106,6 @@ def extract():
     
     except:
         setvar("ERROR!","red")
-
    
 win = tk.Tk()
 win.geometry("290x95")
