@@ -31,14 +31,12 @@ def setvar(var,color="black"):
     
 
 def casecheck(case):
-    global width,height
+    global width,height,back
     print(width,height)
-    #print(case)
     cases = Image.open("%s.png"%case)
     back.paste(cases,(width,height))
     newwidth = cases.width
     width = width + newwidth
-    #print(width,back.width)
 
 def end():
     file = open("zanotherankit.txt","w")
@@ -47,8 +45,7 @@ def end():
     win.quit()
 
 def condition(cont):
-    global arr,width,height,newwidth
-    
+    global arr,width,height,newwidth,back
     string = cont.split()
     const = " "
     cont = const.join(string)
@@ -63,6 +60,8 @@ def condition(cont):
             casecheck(letter)
     width,height = 50,0 
     back.show()
+    back.close()
+    back = Image.open("zback.png")
 
 def scnlivecamera():
     setvar("Please Wait!")
@@ -104,8 +103,9 @@ def extract():
         setvar("DONE!","green")
         condition(content)
     
-    except:
+    except Exception as e:
         setvar("ERROR!","red")
+        print(e)
    
 win = tk.Tk()
 win.geometry("290x95")
@@ -160,7 +160,6 @@ width,height = 50,0
 arr = string.ascii_lowercase
 arr = arr+" "
 print(arr)
-
 def casecheck(case):
     global width,height
     print(case)
@@ -171,7 +170,6 @@ def casecheck(case):
     if width + 150 >= back.width:
         height = height + 227
         width = 50
-
 def condition(cont):
     global arr
     string = cont.split()
@@ -189,7 +187,6 @@ def condition(cont):
     back.show()
     back.close()
     return width,height,newwidth
-
 while switch:
     file = open("zanotherankit.txt","r")
     switch = file.read()
@@ -213,7 +210,6 @@ while switch:
             content = pytesseract.image_to_string(Image.open(r'%s'%path))
             condition(content)
             cv2.waitKey(1) & 0xFF
-
     except:
         file = open("zanotherankit.txt","w")
         file.write("error")
