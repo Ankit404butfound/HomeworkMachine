@@ -13,7 +13,7 @@ lst.append("zback")
 lst.append("zspace")
 
 for char in lst:
-    url = "https://raw.githubusercontent.com/Ankit404butfound/HomeworkMachine/master/Images/%s.png"%char
+    url = "https://raw.githubusercontent.com/Ankit404butfound/HomeworkMachine/master/Image/%s.png"%char
     imglink=urllib.request.urlopen(url)
     imgNp=np.array(bytearray(imglink.read()))
     img = cv2.imdecode(imgNp,-1)
