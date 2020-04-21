@@ -21,15 +21,14 @@ except:
     exit()
     
 width,height = 50,0
-arr = string.ascii_lowercase
-arr = arr+" "
+arr = string.ascii_letters
+arr = arr + string.digits + "+,.-? "
 print(arr)
 
 def setvar(var,color="black"):
     strvar.set(var)
     tk.Label(win, textvariable= strvar,fg=color).grid(row=2,column=1)
     
-
 def casecheck(case):
     global width,height,back
     print(width,height)
@@ -46,13 +45,18 @@ def end():
 
 def condition(cont):
     global arr,width,height,newwidth,back
-    string = cont.split()
-    const = " "
-    cont = const.join(string)
     for letter in cont:
         if letter in arr:
             if letter == " ":
                 letter = "zspace"
+            if letter.isupper():
+                letter = "c"+letter.lower()
+            if letter == ",":
+                letter = "coma"
+            if letter == ".":
+                letter = "fs"
+            if letter == "?":
+                letter = "que"
             if width + 150 >= back.width:
                 height = height + 227
                 width = 50
@@ -74,8 +78,6 @@ def scnlivecamera():
             setvar("DONE!","green")
             condn = False
         
-    
-
 def extract():
     setvar("Please Wait!")
     win.update()
@@ -98,7 +100,6 @@ def extract():
         file.close()
         
         print(content)
-        content = content.lower()
         
         setvar("DONE!","green")
         condition(content)
@@ -157,8 +158,8 @@ pytesseract.pytesseract.tesseract_cmd = r'C:/Users/pc/Desktop/tess/tesseract.exe
 url="http://"+ip_add+"/shot.jpg"
 scaling_factor =0.3
 width,height = 50,0
-arr = string.ascii_lowercase
-arr = arr+" "
+arr = string.ascii_letters
+arr = arr + string.digits + "+,.-? "
 print(arr)
 def casecheck(case):
     global width,height
@@ -182,7 +183,16 @@ def condition(cont):
         if letter in arr:
             if letter == " ":
                 letter = "zspace"
-                
+            if letter == " ":
+                letter = "zspace"
+            if letter.isupper():
+                letter = "c"+letter.lower()
+            if letter == ",":
+                letter = "coma"
+            if letter == ".":
+                letter = "fs"
+            if letter == "?":
+                letter = "que"  
             casecheck(letter)
     back.show()
     back.close()
@@ -215,7 +225,8 @@ while switch:
         file.write("error")
         file.close()
         switch = False
-        print('''ERROR!\nTo use this feature, you need to download IP webcam from playstore and start server, then open "zlivecamerafile.py" and add your ip address there.
+        print('''ERROR!
+To use this feature, you need to download IP webcam from playstore and start server, then open "zlivecamerafile.py" and add your ip address there.
 IGNORE IF YOU ALREADY DID.''')
         time.sleep(10)""")
     
