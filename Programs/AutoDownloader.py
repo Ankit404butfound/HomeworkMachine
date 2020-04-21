@@ -5,18 +5,33 @@ import string
 import time
 
 arr = string.ascii_lowercase
-lst = []
-for char in arr:
-    lst.append(char)
-app = "zback"+"zspace"
-lst.append("zback")
-lst.append("zspace")
+arr = string.ascii_letters
+arr = arr + string.digits + "+,.-? "
 
-for char in lst:
-    url = "https://raw.githubusercontent.com/Ankit404butfound/HomeworkMachine/master/Image/%s.png"%char
+def down(char):
+    url = "https://raw.githubusercontent.com/Ankit404butfound/HomeworkMachine/master/Image/%s"%char
     imglink=urllib.request.urlopen(url)
     imgNp=np.array(bytearray(imglink.read()))
     img = cv2.imdecode(imgNp,-1)
-    cv2.imwrite(r"%s.png"%char,img)
-    print(char+".png saved")
+    cv2.imwrite(r"%s"%char,img)
+    print(char+" saved")
+print(arr)
+for letter in arr:
+    if letter == " ":
+        letter = "zspace"
+    if letter.isupper():
+        letter = "c"+letter.lower()
+    if letter == ",":
+        letter = "coma"
+    if letter == ".":
+        letter = "fs"
+    if letter == "?":
+        letter = "que"
+    try:
+        down(letter+".png")
+    except:
+        down(letter+".PNG")
+        print("Handled")
     time.sleep(1)
+down("zback.png")
+
