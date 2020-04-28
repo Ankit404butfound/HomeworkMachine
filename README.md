@@ -2,6 +2,9 @@
 This project is capable of converting computer characters to hand-written characters, you need to install pytesserect exe as well as the library.
 Copy the "CodeWithGUI.py" and "AutoDownloader.py" file in same folder on the desktop and run, all the images will be automatically downloaded in the same folder.
 
+**Feature**
+
+
 **Install instructions :**
 
 Add Python IDLE to your path, if you are already aware of PIP then you can skip this   step.To do that, download the latest version of IDLE and…\
