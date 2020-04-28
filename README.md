@@ -4,13 +4,13 @@ Copy the "CodeWithGUI.py" and "AutoDownloader.py" file in same folder on the des
 
 **Install instructions :**
 
-* Add Python IDLE to your path, if you are already aware of PIP then you can skip this   step.To do that, download the latest version of IDLE and…\
+Add Python IDLE to your path, if you are already aware of PIP then you can skip this   step.To do that, download the latest version of IDLE and…\
 ![Python setup](https://qphs.fs.quoracdn.net/main-qimg-00614a62293ad3dca4a92503ed4f5caa)
 
-*Now, open cmd or Command Prompt on your computer and type - pip, if everything is find, you should see something like this\
+Now, open cmd or Command Prompt on your computer and type - pip, if everything is find, you should see something like this\
 ![Command prompt](https://qphs.fs.quoracdn.net/main-qimg-aebda86ffaa2611323c3f61e9b2b87cf)
 
-*Now type `pip install numpy` press enter
+Now type `pip install numpy` press enter
 After it’s installed, type `pip install keyboard`
 and after it’s installed, type `pip install Pillow`
 and do the same for cv2 library.
